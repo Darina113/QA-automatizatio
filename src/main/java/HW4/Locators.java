@@ -111,13 +111,13 @@ public class Locators {
         //только айди и с которыми можно взаимодействовать. (Кликнуть, ввести текст и т.д.)
 
         //7.1
-        /*driver.get(Url.third);
+       /* driver.get(Url.third);
         Thread.sleep(2000);//замедляем действие
         driver.findElement(By.id("search2")).sendKeys("HTML Tutorial");
         Thread.sleep(2000);//замедляем действие
         driver.findElement(By.id("learntocode_searchbtn")).click();
         Thread.sleep(2000);//замедляем действие
-        driver.quit();//закрываем окно */
+        driver.quit();//закрываем окно  */
         //7.2
        /* driver.get(Url.third);
         Thread.sleep(2000);//замедляем действие

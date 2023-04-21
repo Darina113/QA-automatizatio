@@ -63,13 +63,13 @@ public class Locators1 {
         //driver.findElement(By.xpath("//a[@class='green-background']")).click();
 
 //Поиск элемента по Tag Name
-        /*driver.get("https://www.guinnessworldrecords.com/search");
+        driver.get("https://www.guinnessworldrecords.com/search");
         //ez-accept-all
-        driver.findElement(By.id("ez-accept-all")).click();
+        //driver.findElement(By.id("ez-accept-all")).click();
         Thread.sleep(2000);
         driver.findElements(By.tagName("input")).get(1).sendKeys("Наш поиск");
 
-        for(WebElement element:
+       /* for(WebElement element:
         driver.findElements
                 (By.xpath("//h5[text()='PRODUCTS']/following-sibling::ul//a"))){
             System.out.println(element.getText());

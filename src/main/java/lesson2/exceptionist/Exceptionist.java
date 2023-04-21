@@ -8,6 +8,8 @@ public class Exceptionist {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите индекс элемента, для вывода в консоль:");
         int i = scanner.nextInt();
+
+        //запускам метод Исключение
         try {
 
             if(i>4){
@@ -17,6 +19,7 @@ public class Exceptionist {
             e.getMessage();
         }
         System.out.println(array[i]);*/
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите знаменатель:");
         int i = scanner.nextInt();

@@ -3,7 +3,7 @@ package lesson2.exceptionist;
 import java.util.Scanner;
 
 public class exampleExeption {
-    public static void division(int x) throws ZeroValueException, NegativeValueException {
+    public static void division(int x) throws ZeroValueException, NegativeValueException { //принимает х обораб исключения ZeroValueException, NegativeValueException
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите знаменатель:");
         int i = scanner.nextInt();
