@@ -24,11 +24,10 @@ public class Driver {
         private static final String w3school = "https://www.w3schools.com/";
         private static final String taxi = "https://taxi838.ua/ru/dnepr/";
         private static final String klopotenko = "https://klopotenko.com/";
-        private static final String uhomki1 = "https://uhomki.com.ua/ru/";
 
     }
 
-    public static void main(String[] args) throws InterruptedException,ZeroValID, ZeroValTagName, ZeroValClass, ZeroValName, ZeroValGetText {
+    public static void main(String[] args) throws InterruptedException, ZeroValID, ZeroValTagName, ZeroValClass, ZeroValName, ZeroValGetText {
         System.setProperty("webdriver.chrome.driver", "/Users/darina/Desktop/selenium/chromedriver_mac64/chromedriver");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize(); //вызов большого окна
@@ -40,7 +39,7 @@ public class Driver {
         //для каждой страницы выводить в консоль название и ссылку на эту страницу.
         //И будет закрывать ту страницу в названии которой есть слово зоопарк.
 
-        /*driver.get(Url.uhomki); //открываем окно у хомки
+        driver.get(Url.uhomki); //открываем окно у хомки
         Thread.sleep(2000);//замедляем действие
         Set<String> setFirst = driver.getWindowHandles(); //получаем идент.номер первого окна из множества открытых окон
 
@@ -95,10 +94,10 @@ public class Driver {
                 if (driver.getTitle().toLowerCase().contains("зоопарк")) {
                     driver.close();
                 }
-            } */
+            }
 
 
-        // 2)
+            // 2)
         /*driver.get(Url.uhomki);
         Thread.sleep(2000);
         Task2 abc = new Task2();
@@ -108,20 +107,19 @@ public class Driver {
         driver.quit(); */
 
 
+            // 3)
+            driver.get(Url.uhomki);
+            Thread.sleep(2000);
+            Task3 ob = new Task3();
+            WebElement element1 = driver.findElement(By.xpath("//div[@class='upButton']"));
+            try {
+                ob.iskluchenie(element1);
+            } catch (ZeroValID | ZeroValTagName | ZeroValClass | ZeroValName | ZeroValGetText exception) {
+                System.out.println(exception.getMessage());
+            }
+            driver.quit();
 
-        // 3)
-        driver.get(Url.uhomki);
-        Thread.sleep(2000);
-        Task3 ob = new Task3();
-        WebElement element1 = driver.findElement(By.xpath("//div[@class='upButton']"));
-        try {
-            ob.iskluchenie(element1);
-        } catch (ZeroValID | ZeroValTagName | ZeroValClass | ZeroValName | ZeroValGetText exception) {
-            System.out.println(exception.getMessage());
-        }
-        driver.quit();
-
-        // 4)
+            // 4)
         /*driver.get(Url.uhomki);
         Thread.sleep(200);
         Task4 ob =new Task4();
@@ -132,4 +130,5 @@ public class Driver {
 
         }
     }
+}
 
