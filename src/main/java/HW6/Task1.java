@@ -26,7 +26,7 @@ public class Task1 {
         System.setProperty("webdriver.chrome.driver", "/Users/darina/Desktop/selenium/chromedriver_mac64/chromedriver");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize(); //вызов большого окна
-        driver.manage().timeouts().scriptTimeout(Duration.ofMinutes(5)); //отработка скрипта 2 мин
+        driver.manage().timeouts().scriptTimeout(Duration.ofMinutes(5)); //отработка скрипта 5 мин
         driver.get("http://only-testing-blog.blogspot.com/2014/01/textbox.html?");
         Actions actions = new Actions(driver);//объект драйвера помещаем в него. Для работы с классом Actions и его методами необходимо создать экземпляр
         WebElement carElement=driver.findElement(By.id("Carlist")); //in DevTools ищем класс select и его атрибут, в данном случае айди
