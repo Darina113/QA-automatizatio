@@ -16,8 +16,6 @@ import static org.openqa.selenium.Keys.ENTER;
 public class Task1 {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "/Users/darina/Desktop/selenium/chromedriver_mac64/chromedriver");
-        //ChromeOptions options = new ChromeOptions(); //экземпдяр класса Хром
-        //options.addArguments("--disable-notifications"); //просим закрыть модальное окно
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize(); //вызов большого окна
         driver.manage().timeouts().scriptTimeout(Duration.ofMinutes(5)); //отработка скрипта 5 мин
