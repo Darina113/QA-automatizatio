@@ -99,4 +99,13 @@ public class MyWaiters {
     public WebElement waitVisabilityOfWebElentReturn(By by){
         return fluentWait(EXPLICITY_WAIT).until(ExpectedConditions.visibilityOf(driver.findElement(by)));
     }
+    //дописываю еще методы т.к. их не хватает для запуска ьестов Сергея
+    public WebElement waitPresenceOfElementReturn(By by){
+        return fluentWait(EXPLICITY_WAIT).until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+    public void waitTitleContainsText(String str){
+        waitForFunction(ExpectedConditions.titleContains(str),EXPLICITY_WAIT);
+    }
+
+
 }

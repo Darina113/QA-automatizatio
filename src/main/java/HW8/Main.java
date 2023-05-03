@@ -82,6 +82,8 @@ public class Main {
 
         //alertIsPresent() - Ожидание появления алерта.
         wait.until(ExpectedConditions.alertIsPresent());
+        proba.waitPresenceOfElementLocated(By.xpath("//textarea[@id='APjFqb']"));
+
 
     }
 }

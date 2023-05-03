@@ -39,16 +39,11 @@ public class OwnWaiters {
 
     //Далее создаем наши методы явных ожиданий
 
-    //1 presenceOfElementLocated() - ожидает появление элемента (работает только по локатору) НЕЛЬЗЯ ПЕРЕГРУЗИТЬ
+    //1 presenceOfElementLocated() - ожидает появление элемента (работает только по локатору)
+    //НЕЛЬЗЯ ПЕРЕГРУЗИТЬ
     public void waitPresenceOfElementLocated(By by){
         waitForFunction(ExpectedConditions.presenceOfElementLocated(by),EXPLICITY_WAIT);
     }
-    //ВОПРОС
-    /*
-    //перегружаю метод waitPresenceOfElementLocated
-    public void waitPresenceOfElementLocated(WebElement element){
-        waitForFunction(ExpectedConditions.presenceOfElementLocated(element),EXPLICITY_WAIT);
-    }*/
     //добавляю в метод waitPresenceOfElementLocated возвращаемый тип значения WebElement
     public WebElement waitPresenceOfElementLocatedReturn(By by){
         return fluentWait(EXPLICITY_WAIT).until(ExpectedConditions.presenceOfElementLocated(by));
