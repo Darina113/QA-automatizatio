@@ -43,7 +43,6 @@ public class Task1 {
          actions.moveToElement(driver.findElement(By.xpath("//a[text()='Java']"))).keyDown(Keys.COMMAND).click().keyUp(Keys.COMMAND).build().perform();
          actions.moveToElement(driver.findElement(By.xpath("//a[text()='Quality Assurance (QA)']"))).keyDown(Keys.COMMAND).click().keyUp(Keys.COMMAND).build().perform();
          Set<String> count = driver.getWindowHandles();//сделали массив из дискрипторов
-         Iterator<String> i = count.iterator(); //разделили их
          assertTrue(count.size()==4,"Количество открытых окон != 4");
 
      }

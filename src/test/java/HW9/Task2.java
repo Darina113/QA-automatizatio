@@ -36,7 +36,6 @@ public class Task2 {
     @Test
     public void mustUrl() {
         OwnWaiters exempClassa = new OwnWaiters(driver);
-        Actions actions = new Actions(driver);
         WebElement payANDdel = driver.findElement(By.xpath("//span[3]/a[text()='Оплата и доставка']"));
         exempClassa.waitVisibilityOfElementLocatedReturn(By.xpath("//span[3]/a[text()='Оплата и доставка']"));
         payANDdel.click();
