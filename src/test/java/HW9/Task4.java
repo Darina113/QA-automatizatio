@@ -34,7 +34,6 @@ public class Task4 {
     public void rememberMe(){
         //input[@id='RememberMe']
         OwnWaiters exempClassa = new OwnWaiters(driver);
-        Actions actions = new Actions(driver);
         WebElement checkbox= driver.findElement(By.xpath("//input[@id='RememberMe']"));
         exempClassa.waitElementSelectionStateToBe(checkbox,false);
         assertTrue(checkbox.isSelected()==false,"Чекбокс выбран");

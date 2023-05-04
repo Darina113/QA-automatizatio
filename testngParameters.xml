@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="AllTests Suite">
+    <test name="Parameters1">
+        <parameter name="input" value="meat"/>
+        <classes>
+            <class name="lesson8.parametrisation.ParametersTest"/>
+        </classes>
+    </test>
+
+    <test name="Parameters2">
+        <parameter name="input" value="fish"/>
+        <classes>
+            <class name="lesson8.parametrisation.ParametersTest"/>
+        </classes>
+    </test>
+
+    <test name="Parameters3">
+        <parameter name="input" value="sault"/>
+        <classes>
+            <class name="lesson8.parametrisation.ParametersTest"/>
+        </classes>
+    </test>
+</suite>

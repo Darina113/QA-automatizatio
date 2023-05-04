@@ -36,8 +36,7 @@ public class Task1 {
     public void fourthWindow(){
          OwnWaiters exempClassa=new OwnWaiters(driver);
          Actions actions = new Actions(driver);
-         WebElement dorosli= driver.findElement(By.xpath("//a[text()='Для дорослих']"));
-         exempClassa.waitVisibilityOfElementLocatedReturn(By.xpath("//a[text()='Для дорослих']"));
+         WebElement dorosli= exempClassa.waitVisibilityOfElementLocatedReturn(By.xpath("//a[text()='Для дорослих']"));
          actions.moveToElement(dorosli).perform();
          actions.moveToElement(driver.findElement(By.xpath("//a[text()='FrontEnd']"))).keyDown(Keys.COMMAND).click().keyUp(Keys.COMMAND).build().perform();
          actions.moveToElement(driver.findElement(By.xpath("//a[text()='Java']"))).keyDown(Keys.COMMAND).click().keyUp(Keys.COMMAND).build().perform();

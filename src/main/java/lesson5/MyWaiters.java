@@ -103,6 +103,9 @@ public class MyWaiters {
     public WebElement waitPresenceOfElementReturn(By by){
         return fluentWait(EXPLICITY_WAIT).until(ExpectedConditions.presenceOfElementLocated(by));
     }
+    public void waitPresenceOfElement(By by) {
+        waitForFunction(ExpectedConditions.presenceOfElementLocated(by), EXPLICITY_WAIT);
+    }
     public void waitTitleContainsText(String str){
         waitForFunction(ExpectedConditions.titleContains(str),EXPLICITY_WAIT);
     }

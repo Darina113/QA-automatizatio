@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="AllTests Suite">
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="lesson8.parametrisation.ParametersTest3"/>
+        </classes>
+    </test>
+
+    <test name="FireFoxTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="lesson8.parametrisation.ParametersTest3"/>
+        </classes>
+    </test>
+
+</suite>

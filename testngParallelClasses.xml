@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="AllTests Suite" parallel="classes" thread-count="2">
+    <test name="Par1">
+        <classes>
+            <class name="lesson8.parallelClasses.KlopotenkoTests"/>
+            <class name="lesson8.parallelClasses.KlopotenkoTests2"/>
+        </classes>
+    </test>
+</suite>

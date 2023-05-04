@@ -36,8 +36,7 @@ public class Task2 {
     @Test
     public void mustUrl() {
         OwnWaiters exempClassa = new OwnWaiters(driver);
-        WebElement payANDdel = driver.findElement(By.xpath("//span[3]/a[text()='Оплата и доставка']"));
-        exempClassa.waitVisibilityOfElementLocatedReturn(By.xpath("//span[3]/a[text()='Оплата и доставка']"));
+        WebElement payANDdel = exempClassa.waitVisibilityOfElementLocatedReturn(By.xpath("//span[3]/a[text()='Оплата и доставка']"));
         payANDdel.click();
         String nameUrl="https://uhomki.com.ua/ru/oplata-i-dostavka/";
         //System.out.println(driver.getCurrentUrl());
