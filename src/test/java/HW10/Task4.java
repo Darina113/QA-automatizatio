@@ -13,7 +13,6 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.time.Duration;
-import java.util.List;
 
 public class Task4 {
     WebDriver driver;
