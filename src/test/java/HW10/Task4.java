@@ -38,27 +38,20 @@ public class Task4 {
         driver.quit();
     }
     @Test(dataProvider = "search")
-    public void searchLineTest(String searchParams,String searchResult)throws ZeroLocator{
+    public void searchLineTest(String searchParams,String searchResult){
         OwnWaiters exempClassa = new OwnWaiters(driver);
         WebElement searchLine=exempClassa.waitVisibilityOfElementLocatedReturn(By.xpath("//input[@type='search']"));
         searchLine.sendKeys(searchParams);//сюда передастся по превому эл из каждого массива (машина,input,смысл)
         searchLine.sendKeys(Keys.ENTER);
         WebElement resultLine=exempClassa.waitPresenceOfElementLocatedReturn(By.xpath("//h1[text()]"));
-        System.out.println(resultLine.getText());
-
-        try {
-            if (resultLine.getText()=="Результати пошуку"){
-                throw new ZeroLocator();
-            }
-
-        }catch (ZeroLocator a){
-            resultLine=exempClassa.waitPresenceOfElementLocatedReturn(By.xpath("//div[@class='search-page__box-title']"));
-            String resultSearch=resultLine.getText().replace("За запитом «","").replace("» нічого не знайдено","");
-            return;
+        if (resultLine.getText().contains("Знайдено по запиту")){
+            String resultSearch=resultLine.getText().replace("Знайдено по запиту «","").replace("»","");
+            assertEquals(resultSearch,searchResult);
+        }else if (resultLine.getText().contains("Результати пошуку")){
+            String resultSearch= driver.findElement(By.xpath("//div[@class='search-page__box-title']/label")).getText().replace("«","").replace("»","");
+            assertEquals(resultSearch,searchResult);
         }
-        String resultSearch=resultLine.getText().replace("Знайдено по запиту «","").replace("»","");
-        assertEquals(resultSearch,searchResult);
-
+        //System.out.println(resultLine.getText());
     }
     @DataProvider(name = "search")
     public Object[][] searchObj() {//Object[][]- многомерный массив

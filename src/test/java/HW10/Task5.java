@@ -38,23 +38,21 @@ public class Task5 {
     }
     @Test
     @Parameters({"input"})//передали параметр, а саму настройку делаем в NG файле testngParametersHomeHW10.xml
-    public void searchLineTest(String searchParams)throws ZeroLocator{
+    public void searchLineTest(String searchParams){
         OwnWaiters exempClassa = new OwnWaiters(driver);
         WebElement searchLine=exempClassa.waitVisibilityOfElementLocatedReturn(By.xpath("//input[@type='search']"));
         String searchText = searchParams;//применяем параметры
         searchLine.sendKeys(searchText);
         searchLine.sendKeys(Keys.ENTER);
         WebElement resultLine=exempClassa.waitPresenceOfElementLocatedReturn(By.xpath("//h1[text()]"));
-        System.out.println(resultLine.getText());
-        String resultSearch=resultLine.getText().replace("Знайдено по запиту «","").replace("»","");
-        assertEquals(resultSearch,searchText);
-
-
-        /*
-            WebElement resultLine2=exempClassa.waitPresenceOfElementLocatedReturn(By.xpath("//div[@class='search-page__box-title']"));
-            String resultSearch=resultLine2.getText().replace("За запитом «","").replace("» нічого не знайдено","");
-            assertEquals(resultSearch,searchResult);
-        }*/
+        if (resultLine.getText().contains("Знайдено по запиту")){
+            String resultSearch=resultLine.getText().replace("Знайдено по запиту «","").replace("»","");
+            assertEquals(resultSearch,searchText);
+        }else if (resultLine.getText().contains("Результати пошуку")){
+            String resultSearch= driver.findElement(By.xpath("//div[@class='search-page__box-title']/label")).getText().replace("«","").replace("»","");
+            assertEquals(resultSearch,searchText);
+        }
+        //System.out.println(resultLine.getText());
 
     }
 
