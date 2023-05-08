@@ -4,6 +4,7 @@ import lesson5.MyWaiters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -58,14 +59,15 @@ public class ParametersTest3 {
     MyWaiters myWaiters;
 
     @BeforeClass
-    @Parameters({"browser"})
+    @Parameters({"browser"}) //делаем инициализацию в различных браузерах, настройки делаем в testngParameters3.xml
     public void driverInitialisation(String browser) {
         if (browser.equals("chrome")){
             System.setProperty("webdriver.chrome.driver", "C:\\sele\\chromedriver.exe");
             driver = new ChromeDriver();
         }
         if (browser.equals("firefox")){
-            //System.setProperty("webdriver.chrome.driver", "C:\\sele\\geckodriver.exe");
+            //писали бы то что ниже закоменчено
+            //System.setProperty("webdriver.chrome.driver", "C:\\sele\\firefox.exe");
             //driver = new FirefoxDriver();
             System.setProperty("webdriver.chrome.driver", "C:\\sele\\chromedriver.exe");
             driver = new ChromeDriver();

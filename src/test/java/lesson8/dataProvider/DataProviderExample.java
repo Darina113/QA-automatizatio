@@ -73,12 +73,13 @@ public class DataProviderExample {
         driver.quit();
     }
 
-    @Test(dataProvider = "search")
-    public void searchTest(String searchParams) {
+    @Test(dataProvider = "search") //в скобках указыв.параметр dataProvider и указываем его имя search
+    public void searchTest(String searchParams) {//передаем параметры такие как дата провайдера  (стринг и все стринги которые указаны в массиве будет перебирать "meat", "fish", "sault")
         driver.get(Url.loginPage);
         myWaiters.waitPresenceOfElement(Locators.entranceGoogle);
         driver.findElement(Locators.openSearch).click();
         WebElement searchField = myWaiters.waitVisabilityOfWebElentReturn(Locators.searchField);
+        //чтобы заработала параметризация дата провайдера, указываем в стринге searchParams и он сам по кругу будет вставлять все слова из массива дата провайдер
         String searchText = searchParams;
         searchField.sendKeys(searchText);
         searchField.submit();
@@ -86,30 +87,30 @@ public class DataProviderExample {
         String resultText = resultSearch.getText().replace("ЗНАЙДЕНО ЗА ЗАПИТОМ: ", "");
         assertTrue(resultText.equalsIgnoreCase(searchText));
     }
-    @Test(dataProvider = "search2")
+    @Test(dataProvider = "search2")//в скобках указыв.параметр dataProvider и указываем его имя search2
     public void searchTest2(String searchParams,String result) {
         driver.get(Url.loginPage);
         myWaiters.waitPresenceOfElement(Locators.entranceGoogle);
         driver.findElement(Locators.openSearch).click();
         WebElement searchField = myWaiters.waitVisabilityOfWebElentReturn(Locators.searchField);
-        searchField.sendKeys(searchParams);
+        searchField.sendKeys(searchParams);//сюда передастся по превому эл из каждого массива (meat,fish,sault)
         searchField.submit();
         WebElement resultSearch = myWaiters.waitPresenceOfElementReturn(Locators.seerchResult);
         String resultText = resultSearch.getText().replace("ЗНАЙДЕНО ЗА ЗАПИТОМ: ", "");
-        assertTrue(resultText.equals(result));
+        assertTrue(resultText.equals(result));//result- наш второй элемент из каждого массива (MEAT,FISH,SAULT)
     }
-
-    @DataProvider(name = "search")
-    public Object[] searchObj() {
+//DataProvider- удобен если у нас бОльшое количество разных данных но один и тот же сценарий
+    @DataProvider(name = "search") //
+    public Object[] searchObj() {//Object[]-одномерный массив стрингов
         return new Object[]{
-                "meat", "fish", "sault"
+                "meat", "fish", "sault"//пишем какие слова хотим проверить
         };
     }
 
     @DataProvider(name = "search2")
-    public Object[][] searchObj2() {
+    public Object[][] searchObj2() {//Object[][]- многомерный массив
         return new Object[][]{
-                {"meat","MEAT"}, {"fish","FISH"}, {"sault","SAULT"}
+                {"meat","MEAT"}, {"fish","FISH"}, {"sault","SAULT"}//{"meat","MEAT"}- 1 массив, {"fish","FISH"}-2 массив
         };
     }
 }

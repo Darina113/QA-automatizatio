@@ -74,8 +74,8 @@ public class ParametersTest2 {
     }
 
     @Test
-    @Parameters({"input","equals"})
-    public void searchTest2(String searchParams,String result) {
+    @Parameters({"input","equals"})//передали 2 параметра(придумали тут), а саму настройку делаем в NG файле testngParameters2.xml
+    public void searchTest2(String searchParams,String result) {//передали 2 параметра(название придумали тут)
         driver.get(Url.loginPage);
         myWaiters.waitPresenceOfElement(Locators.entranceGoogle);
         driver.findElement(Locators.openSearch).click();

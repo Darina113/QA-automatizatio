@@ -74,13 +74,13 @@ public class ParametersTest {
     }
 
     @Test
-    @Parameters({"input"})
-    public void searchTest(String searchParams) {
+    @Parameters({"input"})//передали параметр, а саму настройку делаем в NG файле testngParameters.xml
+    public void searchTest(String searchParams) {//вносим параметры
         driver.get(Url.loginPage);
         myWaiters.waitPresenceOfElement(Locators.entranceGoogle);
         driver.findElement(Locators.openSearch).click();
         WebElement searchField = myWaiters.waitVisabilityOfWebElentReturn(Locators.searchField);
-        String searchText = searchParams;
+        String searchText = searchParams;//применяем параметры
         searchField.sendKeys(searchText);
         searchField.submit();
         WebElement resultSearch = myWaiters.waitPresenceOfElementReturn(Locators.seerchResult);
